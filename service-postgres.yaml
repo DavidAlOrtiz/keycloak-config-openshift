@@ -1,0 +1,47 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: postgres
+  namespace: davida03-dev
+  uid: c728af15-6344-4d4d-817a-f830c8ff0ac1
+  resourceVersion: '8890028472'
+  creationTimestamp: '2026-10-28T19:49:48Z'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2026-10-28T19:49:48Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":5432,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  clusterIP: 172.30.68.90
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: postgres
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 172.30.68.90
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: postgres
+status:
+  loadBalancer: {}

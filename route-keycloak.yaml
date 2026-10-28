@@ -1,0 +1,62 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: keycloak
+  namespace: davida03-dev
+  uid: 1ecd356f-ffbb-441b-9b2b-651d47049115
+  resourceVersion: '8890008733'
+  generation: 1
+  creationTimestamp: '2026-10-28T19:43:36Z'
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2026-10-28T19:43:36Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:tls':
+            .: {}
+            'f:insecureEdgeTerminationPolicy': {}
+            'f:termination': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2026-10-28T19:43:36Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+      subresource: status
+spec:
+  host: keycloak-davida03-dev.apps.rm3.7wse.p1.openshiftapps.com
+  to:
+    kind: Service
+    name: keycloak
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: keycloak-davida03-dev.apps.rm3.7wse.p1.openshiftapps.com
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2026-10-28T19:43:36Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: router-default.apps.rm3.7wse.p1.openshiftapps.com
